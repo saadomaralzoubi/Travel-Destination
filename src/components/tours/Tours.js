@@ -1,15 +1,15 @@
 import "./Tours.css";
-export default function Tour(props) {
+import Tour from "./tour/Tour.js";
+import { Link } from "react-router-dom";
+export default function Tours(props) {
   return (
     <>
       <div class="all">
-        {props.dataTour.map((value, index) => {
+        {props.dataTour.map((value) => {
           return (
-            <div class="card" key={index}>
-              <p id="name">{value.name}</p>
-              <img src={value.image} />
-              <hr></hr>
-            </div>
+            <Link to={`/city/${value.id}`}>
+              <Tour key={value.id} dataTourOne={value} />
+            </Link>
           );
         })}
       </div>
